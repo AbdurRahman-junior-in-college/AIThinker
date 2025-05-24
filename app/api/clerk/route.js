@@ -4,7 +4,7 @@
 // import connectDB from "../../../config/db";
 // import { User } from "../../../models/user.model.js";
 
-// export async function POST(req) {
+ export async function POST(req) {
 //   const wh = new Webhook(process.env.SIGNIN_SECRET);
 //   const headerPayLoad = await headers();
 
@@ -27,7 +27,7 @@
 //     image: data.image_url || "",
 //   };
 
-//   await connectDB();
+  await connectDB();
 
 //   switch (type) {
 //     case "user.created":
@@ -43,8 +43,8 @@
 //       break;
 //   }
 
-//   return NextResponse.json({ message: "Event Recieved" });
-// }
+  return NextResponse.json({ message: "Event Recieved" });
+}
 
 
 //1. connect the cloud mongodb

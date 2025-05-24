@@ -114,6 +114,9 @@ export const get_samples = async () => {
     const res = await fetch(`http://localhost:3000/api/sample`, {
       cache: "no-store",
     });
+    if(!res.ok){
+      throw new Error("Something Error");
+    }
 
     return res.json();
   } catch (error) {

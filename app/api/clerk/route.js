@@ -1,7 +1,7 @@
 // import { headers } from "next/headers";
-// import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 // import { Webhook } from "svix";
-// import connectDB from "../../../config/db";
+import connectDB from "../../../config/db.js";
 // import { User } from "../../../models/user.model.js";
 
  export async function POST(req) {

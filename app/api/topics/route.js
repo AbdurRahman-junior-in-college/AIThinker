@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import connectDB from "../../../config/db";
-import { Topic } from "../../../models/topic";
+
 
 export async function POST(request) {
   const { title, description } = await request.json();

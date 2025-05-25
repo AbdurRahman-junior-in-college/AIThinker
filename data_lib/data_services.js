@@ -1,20 +1,8 @@
 import axios from "axios";
-// import User from "../models/user.model.js";
-
-// export async function getCabins() {
-//   try {
-//     await connectDB();
-//     const cabins = await Cabin.find({});
-//     // return NextResponse.json({ success: true, cabins });
-//     return cabins
-//   } catch (error) {
-//     return NextResponse.json({ success: false, message: "Something wrong" });
-//   }
-// }
 
 export const store_blog = async (content, userId) => {
   try {
-    const { data, error } = await axios.post(
+    const { data } = await axios.post(
       "http://localhost:3000/api/blogs",
       {
         content,
@@ -23,15 +11,9 @@ export const store_blog = async (content, userId) => {
       { headers: { "Content-Type": "application/json" } }
     );
 
-    
-
-    if (error) {
-      throw new Error("Something error", error?.message);
-    }
-
     return data;
   } catch (error) {
-    throw new Error("Something error", error?.message);
+    throw new Error("Something error");
   }
 };
 
@@ -48,15 +30,6 @@ export const get_blogs = async (userid) => {
   } catch (error) {
     throw new Error("error");
   }
-  // try {
-  //   const { data } = await axios.get(
-  //     `http://localhost:3000/api/blogs/${userid}`
-  //   );
-
-  //   return data;
-  // } catch (error) {
-  //   throw new Error("Something error", error?.message);
-  // }
 };
 
 export const update_blog = async (content, id, userId) => {
@@ -69,19 +42,15 @@ export const update_blog = async (content, id, userId) => {
 
     return data;
   } catch (error) {
-    throw new Error("Something error");
+    throw new Error("Something error while updating blog");
   }
 };
 
 export const registere_user = async (userInfo) => {
   try {
-    const { data } = await axios.post(
-      `http://localhost:3000/api/user`,
-      userInfo,
-      {
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+    await axios.post(`http://localhost:3000/api/user`, userInfo, {
+      headers: { "Content-Type": "application/json" },
+    });
 
     // return data;
   } catch (error) {
@@ -91,7 +60,7 @@ export const registere_user = async (userInfo) => {
 
 export const store_sample = async (content) => {
   try {
-    const { data, error } = await axios.post(
+    const { data } = await axios.post(
       "http://localhost:3000/api/sample",
       {
         content,
@@ -99,13 +68,13 @@ export const store_sample = async (content) => {
       { headers: { "Content-Type": "application/json" } }
     );
 
-    if (error) {
-      throw new Error("Something error", error?.message);
+    if (!data) {
+      throw new Error("Something error");
     }
 
     return data;
   } catch (error) {
-    throw new Error("Something error", error?.message);
+    throw new Error("Something error");
   }
 };
 
@@ -114,14 +83,14 @@ export const get_samples = async () => {
     const res = await fetch(`http://localhost:3000/api/sample`, {
       cache: "no-store",
     });
-    if(!res.ok){
-      throw new Error("Something Error");
+
+    if (!res.ok) {
+      throw new Error("Something error while getting samples");
     }
-    console.log(res.json());
 
     return res.json();
   } catch (error) {
-    throw new Error("Something error", error?.message);
+    throw new Error("Something error");
   }
 };
 
@@ -133,6 +102,6 @@ export const get_user = async (userId) => {
 
     return data;
   } catch (error) {
-    throw new Error("Something error", error?.message);
+    throw new Error("Something error");
   }
 };

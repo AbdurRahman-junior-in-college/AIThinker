@@ -20,7 +20,7 @@ const Header =  () => {
 
       <div className="flex items-center gap-4">
         <SignOutButton>
-          <SignInButton forceRedirectUrl="/blog">
+          <SignInButton fallbackRedirectUrl="/blog">
             <button className="px-5 py-2 rounded bg-gray-100 text-gray-700">
               Login
             </button>

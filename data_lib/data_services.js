@@ -3,7 +3,7 @@ import axios from "axios";
 export const store_blog = async (content, userId) => {
   try {
     const { data } = await axios.post(
-      "http://localhost:3000/api/blogs",
+      "/api/blogs",
       {
         content,
         userId,
@@ -19,7 +19,7 @@ export const store_blog = async (content, userId) => {
 
 export const get_blogs = async (userid) => {
   try {
-    const res = await fetch(`http://localhost:3000/api/blogs/${userid}`, {
+    const res = await fetch(`/api/blogs/${userid}`, {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -34,7 +34,7 @@ export const get_blogs = async (userid) => {
 
 export const update_blog = async (content, id, userId) => {
   try {
-    const { data } = await axios.put(`http://localhost:3000/api/blogs/${id}`, {
+    const { data } = await axios.put(`/api/blogs/${id}`, {
       content,
       userId,
       headers: { "Content-Type": "application/json" },
@@ -48,7 +48,7 @@ export const update_blog = async (content, id, userId) => {
 
 export const registere_user = async (userInfo) => {
   try {
-    await axios.post(`http://localhost:3000/api/user`, userInfo, {
+    await axios.post(`/api/user`, userInfo, {
       headers: { "Content-Type": "application/json" },
     });
 
@@ -61,7 +61,7 @@ export const registere_user = async (userInfo) => {
 export const store_sample = async (content) => {
   try {
     const { data } = await axios.post(
-      "http://localhost:3000/api/sample",
+      "/api/sample",
       {
         content,
       },
@@ -80,7 +80,7 @@ export const store_sample = async (content) => {
 
 export const get_samples = async () => {
   try {
-    const res = await fetch(`http://localhost:3000/api/sample`, {
+    const res = await fetch(`/api/sample`, {
       cache: "no-store",
     });
 
@@ -97,7 +97,7 @@ export const get_samples = async () => {
 export const get_user = async (userId) => {
   try {
     const { data } = await axios.get(
-      `http://localhost:3000/api/user/${userId}`
+      `/api/user/${userId}`
     );
 
     return data;

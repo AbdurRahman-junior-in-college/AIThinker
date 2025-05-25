@@ -22,7 +22,7 @@ const Blog = ({ content }) => {
 
           <Modal.Window name={"blog"}>
             {/* <HTMLPreview html={content.description} /> */}
-            <TipTapEditor content={content.description} id={content._id} title={content.title} />
+            <TipTapEditor content={content?.description} id={content?._id} title={content?.title} />
 
             {/* <div className="mt-5 flex justify-end gap-5">
               <Button className="bg-gray-600 text-gray-100 hover:bg-white hover:text-gray-900">

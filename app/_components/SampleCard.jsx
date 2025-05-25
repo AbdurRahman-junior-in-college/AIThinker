@@ -37,7 +37,7 @@ const SampleCard = ({ content }) => {
         <Modal.Open opens={"sample"}>
           <div className="flex justify-end mt-4">
             <button
-{/*               onClick={() => checkUser(userInfo)} */}
+
               className="px-3 py-2 rounded bg-indigo-700 text-white cursor-pointer"
             >
               View

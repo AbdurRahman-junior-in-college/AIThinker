@@ -1,7 +1,6 @@
 import React, { Suspense } from "react";
 import HeroSection from "./_components/HeroSection";
 import Samples from "./_components/Samples";
-import { currentUser } from "@clerk/nextjs/server";
 import Spinner from "./_components/Spinner";
 import { get_samples } from "../data_lib/data_services";
 
@@ -26,7 +25,5 @@ export default async function Home() {
       </div>
     </div>
   );
-  // }catch(error){
-  //   console.log("Something error")
-  // }
+ 
 }

@@ -8,7 +8,7 @@ import { get_samples } from "../data_lib/data_services";
 export default async function Home() {
   // const user = await currentUser()
   // console.log(user)
-  try{
+  
    const { samples } = await get_samples();
   console.log(samples)
   return (
@@ -20,13 +20,13 @@ export default async function Home() {
           See Our Samples
         </h3>
 
-        // <Suspense fallback={<Spinner />}>
-        //   <Samples samples={samples} />
-        // </Suspense>
+        <Suspense fallback={<Spinner />}>
+          <Samples samples={samples} />
+        </Suspense>
       </div>
     </div>
   );
-  }catch(error){
-    console.log("Something error")
-  }
+  // }catch(error){
+  //   console.log("Something error")
+  // }
 }

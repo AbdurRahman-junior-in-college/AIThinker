@@ -3,7 +3,7 @@ import axios from "axios";
 export const store_blog = async (content, userId) => {
   try {
     const { data } = await axios.post(
-      "/api/blogs",
+      "https://ai-thinker-topaz.vercel.app/api/blogs",
       {
         content,
         userId,
@@ -19,7 +19,7 @@ export const store_blog = async (content, userId) => {
 
 export const get_blogs = async (userid) => {
   try {
-    const res = await fetch(`/api/blogs/${userid}`, {
+    const res = await fetch(`https://ai-thinker-topaz.vercel.app/api/blogs/${userid}`, {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -34,7 +34,7 @@ export const get_blogs = async (userid) => {
 
 export const update_blog = async (content, id, userId) => {
   try {
-    const { data } = await axios.put(`/api/blogs/${id}`, {
+    const { data } = await axios.put(`https://ai-thinker-topaz.vercel.app/api/blogs/${id}`, {
       content,
       userId,
       headers: { "Content-Type": "application/json" },
@@ -48,7 +48,7 @@ export const update_blog = async (content, id, userId) => {
 
 export const registere_user = async (userInfo) => {
   try {
-    await axios.post(`/api/user`, userInfo, {
+    await axios.post(`https://ai-thinker-topaz.vercel.app/api/user`, userInfo, {
       headers: { "Content-Type": "application/json" },
     });
 
@@ -61,7 +61,7 @@ export const registere_user = async (userInfo) => {
 export const store_sample = async (content) => {
   try {
     const { data } = await axios.post(
-      "/api/sample",
+      "https://ai-thinker-topaz.vercel.app/api/sample",
       {
         content,
       },
@@ -80,7 +80,7 @@ export const store_sample = async (content) => {
 
 export const get_samples = async () => {
   try {
-    const res = await fetch(`/api/sample`, {
+    const res = await fetch(`https://ai-thinker-topaz.vercel.app/api/sample`, {
       cache: "no-store",
     });
 
@@ -97,7 +97,7 @@ export const get_samples = async () => {
 export const get_user = async (userId) => {
   try {
     const { data } = await axios.get(
-      `/api/user/${userId}`
+      `https://ai-thinker-topaz.vercel.app/api/user/${userId}`
     );
 
     return data;

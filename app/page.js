@@ -3,10 +3,12 @@ import HeroSection from "./_components/HeroSection";
 import Samples from "./_components/Samples";
 import { currentUser } from "@clerk/nextjs/server";
 import Spinner from "./_components/Spinner";
+import { get_samples } from "../data_lib/data_services";
 
 export default async function Home() {
   // const user = await currentUser()
   // console.log(user)
+   const { samples } = await get_samples();
   return (
     <div className="flex flex-col gap-5 mt-4">
       <HeroSection />
@@ -17,7 +19,7 @@ export default async function Home() {
         </h3>
 
         <Suspense fallback={<Spinner />}>
-          <Samples />
+          <Samples samples={samples} />
         </Suspense>
       </div>
     </div>

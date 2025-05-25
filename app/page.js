@@ -7,9 +7,8 @@ import { get_samples } from "../data_lib/data_services";
 export default async function Home() {
   // const user = await currentUser()
   // console.log(user)
-  
-   const { samples } = await get_samples();
-  console.log(samples)
+  const { samples } = await get_samples();
+
   return (
     <div className="flex flex-col gap-5 mt-4">
       <HeroSection />
@@ -19,11 +18,15 @@ export default async function Home() {
           See Our Samples
         </h3>
 
-        <Suspense fallback={<Spinner />}>
-          <Samples samples={samples} />
-        </Suspense>
+        {samples.length > 0 ? (
+          <Suspense fallback={<Spinner />}>
+            <Samples samples={samples} />
+          </Suspense>
+        ) : (
+          <h1 className="text-white">Samples Not Found.</h1>
+        )}
       </div>
     </div>
   );
- 
 }
+

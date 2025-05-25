@@ -8,6 +8,7 @@ import { get_samples } from "../data_lib/data_services";
 export default async function Home() {
   // const user = await currentUser()
   // console.log(user)
+  try{
    const { samples } = await get_samples();
   console.log(samples)
   return (
@@ -25,4 +26,7 @@ export default async function Home() {
       </div>
     </div>
   );
+  }catch(error){
+    console.log("Something error")
+  }
 }

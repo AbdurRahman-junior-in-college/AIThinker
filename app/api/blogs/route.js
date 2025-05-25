@@ -4,7 +4,6 @@ import { Blog } from "../../../models/blog.model";
 
 export async function POST(request) {
   const { content, userId } = await request.json();
-  console.log(userId);
 
   // const title = content.split(" ").slice(0, 10).join(" ");
   const title = content.match(/<h1[^>]*>(.*?)<\/h1>/i);

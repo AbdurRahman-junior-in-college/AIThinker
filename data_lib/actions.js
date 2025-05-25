@@ -4,7 +4,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import axios from "axios";
 import connectDB from "../config/db";
 import User from "../models/user.model";
-import { get_blogs, registere_user } from "./data_services";
+import { get_blogs, get_samples, registere_user } from "./data_services";
 
 export async function checkUser(userInfo) {
   // console.log(user);
@@ -37,6 +37,21 @@ export async function checkUser(userInfo) {
     console.log(error);
   }
 }
+
+// export async function get_smaples_function() {
+//   try {
+//     const res = await fetch(`http://localhost:3000/api/sample`, {
+//       cache: "no-store",
+//     });
+//     const { samples } = res.json();
+//     return samples;
+//   } catch (error) {
+//     throw new Error("Something error");
+//   }
+//   // const { samples } = await get_samples();
+//   // console.log(samples)
+//   // return samples;
+// }
 
 // export async function promptHandling(formData) {
 //   const prompt = formData.get("prompt");

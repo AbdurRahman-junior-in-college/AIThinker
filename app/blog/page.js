@@ -3,7 +3,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-import { store_blog } from "../../data_lib/data_services";
 import Modal from "../_components/Modal";
 import SpinnerMini from "../_components/SpinnerMini";
 import TipTapEditor from "../_components/TipTapEditor";
@@ -47,7 +46,8 @@ const BlogCreationPage = () => {
 
   const handleClick = async () => {
     setLoading(true);
-    let content = "Stay away from unneccessary description lik: here is well format , this font etc.";
+    let content =
+      "Stay away from unneccessary description lik: here is well format , this font etc.";
     if (type === "email") {
       content = `Generate a professional email format for the following purpose :
         ${prompt} in valid HTML

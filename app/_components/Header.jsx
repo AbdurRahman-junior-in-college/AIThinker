@@ -6,7 +6,7 @@ import Link from "next/link";
 
 // import { checkUser } from "../../data_lib/actions";
 
-const Header = async () => {
+const Header =  () => {
   // const res = await checkUser();
   // console.log("res")
 

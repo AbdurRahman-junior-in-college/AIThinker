@@ -23,7 +23,7 @@ export const store_blog = async (content, userId) => {
       { headers: { "Content-Type": "application/json" } }
     );
 
-    console.log(data);
+    
 
     if (error) {
       throw new Error("Something error", error?.message);
@@ -117,6 +117,7 @@ export const get_samples = async () => {
     if(!res.ok){
       throw new Error("Something Error");
     }
+    console.log(res.json());
 
     return res.json();
   } catch (error) {

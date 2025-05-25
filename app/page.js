@@ -18,9 +18,9 @@ export default async function Home() {
           See Our Samples
         </h3>
 
-        <Suspense fallback={<Spinner />}>
-          <Samples samples={samples} />
-        </Suspense>
+        // <Suspense fallback={<Spinner />}>
+        //   <Samples samples={samples} />
+        // </Suspense>
       </div>
     </div>
   );

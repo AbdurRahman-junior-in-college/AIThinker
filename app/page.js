@@ -9,6 +9,7 @@ export default async function Home() {
   // const user = await currentUser()
   // console.log(user)
    const { samples } = await get_samples();
+  console.log(samples)
   return (
     <div className="flex flex-col gap-5 mt-4">
       <HeroSection />
